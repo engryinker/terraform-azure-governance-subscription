@@ -50,7 +50,7 @@ See [`examples/basic`](examples/basic) for a minimal runnable (zero-instance) ex
 
 ## Inputs
 
-Beyond the standard `location`, `tags`, `enable_telemetry` module-level variables, the map variable below mirrors its upstream AVM module's inputs 1:1 (fields typed `any` carry complex nested upstream schemas -- see the linked module docs). Every field is optional and defaults to upstream's own default.
+Beyond the standard `location`, `tags`, `enable_telemetry` module-level variables, the map variable below mirrors its upstream AVM module's inputs 1:1, with the exact upstream types (see the linked module docs for nested schemas). Every field is optional and defaults to upstream's own default.
 
 ### `subscriptions` (subscriptions)
 
@@ -67,23 +67,23 @@ Wraps [Azure/avm-ptn-alz-sub-vending/azure](https://registry.terraform.io/module
 | `subscription_update_existing` | `bool` | Update display name / tags of an existing `subscription_id`. |
 | `subscription_management_group_association_enabled` | `bool` |  |
 | `subscription_management_group_id` | `string` | Bare management group ID (name), **not** the full resource ID. |
-| `wait_for_subscription_before_subscription_operations` | `any` | `{ create = "30s", destroy = "0s" }` |
+| `wait_for_subscription_before_subscription_operations` | `object` | `{ create = "30s", destroy = "0s" }` |
 | `subscription_register_resource_providers_enabled` | `bool` |  |
 | `subscription_register_resource_providers_and_features` | `map(set(string))` | Defaults to upstream's built-in provider list. |
 | `role_assignment_enabled` | `bool` |  |
-| `role_assignments` | `any` |  |
+| `role_assignments` | `map(object)` |  |
 | `budget_enabled` | `bool` |  |
-| `budgets` | `any` |  |
+| `budgets` | `map(object)` |  |
 | `resource_group_creation_enabled` | `bool` |  |
-| `resource_groups` | `any` |  |
+| `resource_groups` | `map(object)` |  |
 | `umi_enabled` | `bool` |  |
-| `user_managed_identities` | `any` |  |
+| `user_managed_identities` | `map(object)` |  |
 | `virtual_network_enabled` | `bool` |  |
-| `virtual_networks` | `any` |  |
+| `virtual_networks` | `map(object)` |  |
 | `network_security_group_enabled` | `bool` |  |
-| `network_security_groups` | `any` |  |
+| `network_security_groups` | `map(object)` |  |
 | `route_table_enabled` | `bool` |  |
-| `route_tables` | `any` |  |
+| `route_tables` | `map(object)` |  |
 | `location` | `string` | Overrides the module-level `location` for this entry only. |
 | `tags` | `map(string)` | Subscription tags (upstream `subscription_tags`). Overrides the module-level `tags` for this entry only. |
 | `enable_telemetry` | `bool` | Overrides the module-level `enable_telemetry` for this entry only. |
