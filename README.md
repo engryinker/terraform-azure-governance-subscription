@@ -4,7 +4,7 @@ Org-standard Terraform wrapper for: **subscriptions** (subscription vending).
 
 Wraps the AVM subscription-vending pattern module, which creates a subscription alias (or adopts an existing subscription), places it in a management group, and can optionally register resource providers and create role assignments, budgets, resource groups, user-assigned identities and networking inside it. There is no AVM *resource* module for subscriptions; this pattern module is Microsoft's supported path.
 
-Compose with [terraform-azure-governance-managementgroup](https://github.com/<org>/terraform-azure-governance-managementgroup) (its `management_group_names` output feeds `subscription_management_group_id`) and [terraform-azure-tags](https://github.com/<org>/terraform-azure-tags) for the `tags` input.
+Compose with [terraform-azure-governance-managementgroup](https://github.com/engryinker/terraform-azure-governance-managementgroup) (its `management_group_names` output feeds `subscription_management_group_id`) and [terraform-azure-tags](https://github.com/engryinker/terraform-azure-tags) for the `tags` input.
 
 **Prerequisites**
 
@@ -19,7 +19,7 @@ Compose with [terraform-azure-governance-managementgroup](https://github.com/<or
 
 ```hcl
 module "governance-subscription" {
-  source = "git::https://github.com/<org>/terraform-azure-governance-subscription.git?ref=v1.0.0"
+  source = "git::https://github.com/engryinker/terraform-azure-governance-subscription.git?ref=v1.0.0"
 
   location = "eastus"
   tags     = module.tags.tags
